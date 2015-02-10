@@ -10,7 +10,13 @@
 Pod::Spec.new do |s|
   s.name             = "SNColorPicker"
   s.version          = "0.1.0"
-  s.summary          = "Easy color picker for iOS."
+  s.summary          = "A short description of SNColorPicker."
+  s.description      = <<-DESC
+                       An optional longer description of SNColorPicker
+
+                       * Markdown format.
+                       * Don't worry about the indent, we strip it!
+                       DESC
   s.homepage         = "https://github.com/<GITHUB_USERNAME>/SNColorPicker"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'

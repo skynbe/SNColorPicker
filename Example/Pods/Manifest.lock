@@ -1,0 +1,14 @@
+PODS:
+  - SNColorPicker (0.1.0)
+
+DEPENDENCIES:
+  - SNColorPicker (from `../`)
+
+EXTERNAL SOURCES:
+  SNColorPicker:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SNColorPicker: b45c12d07fc992f298746e2511122266b69e59cc
+
+COCOAPODS: 0.35.0
