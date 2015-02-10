@@ -11,11 +11,11 @@ Pod::Spec.new do |s|
   s.name             = "SNColorPicker"
   s.version          = "0.1.0"
   s.summary          = "Easy color picker for iOS."
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SNColorPicker"
+  s.homepage         = "https://github.com/skynbe/SNColorPicker"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Seongwook Seo" => "skynbe@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SNColorPicker.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/skynbe/SNColorPicker.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
