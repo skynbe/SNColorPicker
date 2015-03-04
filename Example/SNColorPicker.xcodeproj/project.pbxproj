@@ -71,6 +71,7 @@
 		91591E8481BEF419B828F7D4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		91DB305B82CEF75BAE767042 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AC6296B09E66C8C9250D1255 /* libPods-SNColorPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SNColorPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B555EE651A9C0D4F000BB7D2 /* SNColorPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNColorPicker.h; sourceTree = "<group>"; };
 		B56B99971A89E11000567390 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		B56B99981A89E11000567390 /* SNColorPickerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNColorPickerComponent.h; sourceTree = "<group>"; };
 		B56B99991A89E11000567390 /* SNColorPickerCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNColorPickerCursor.h; sourceTree = "<group>"; };
@@ -222,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				B56B99971A89E11000567390 /* .gitkeep */,
+				B555EE651A9C0D4F000BB7D2 /* SNColorPicker.h */,
 				B56B99981A89E11000567390 /* SNColorPickerComponent.h */,
 				B56B99991A89E11000567390 /* SNColorPickerCursor.h */,
 				B56B999A1A89E11000567390 /* SNColorPickerCursor.m */,

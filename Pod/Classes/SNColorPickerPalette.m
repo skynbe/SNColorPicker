@@ -107,12 +107,16 @@
 
 - (void)setColor:(UIColor *)color {
     _color = color;
+    if (_color == nil) {
+        return;
+    }
     HSBColor hsbColor = HSBColorFromUIColor(_color);
     [CATransaction begin];
     [CATransaction setValue:(id) kCFBooleanTrue forKey:kCATransactionDisableActions];
-    self.brightnessLayer.opacity = 1 - hsbColor.brightness;
+    self.brightnessLayer.opacity = (1 - hsbColor.brightness) * hsbColor.alpha;
     self.cursor.center = CGPointMake(CGRectGetWidth(self.frame) * hsbColor.hue, CGRectGetHeight(self.frame) * (1 - hsbColor.saturation));
     self.cursor.color = _color;
+    self.paletteLayer.opacity = hsbColor.alpha;
     [CATransaction commit];
 }
 

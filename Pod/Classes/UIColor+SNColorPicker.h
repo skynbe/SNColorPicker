@@ -12,12 +12,14 @@ typedef struct  {
     CGFloat hue;
     CGFloat saturation;
     CGFloat brightness;
+    CGFloat alpha;
 } HSBColor;
 
 typedef struct {
     CGFloat red;
     CGFloat green;
     CGFloat blue;
+    CGFloat alpha;
 } RGBColor;
 
 @interface UIColor (SNColorPicker)

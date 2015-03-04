@@ -12,11 +12,12 @@
 #import "SNColorPickerPreview.h"
 #import "SNColorPickerPalette.h"
 
-@interface SNViewController () <ColorPickerManagerDelegate>
+@interface SNViewController () <SNColorPickerManagerDelegate>
 
 @property (strong, nonatomic) SNColorPickerManager *colorPickerManager;
 
-@property (weak, nonatomic) IBOutlet SNColorPickerSlider *slider;
+@property (weak, nonatomic) IBOutlet SNColorPickerBrightnessSlider *brightnessSlider;
+@property (weak, nonatomic) IBOutlet SNColorPickerAlphaSlider *alphaSlider;
 @property (weak, nonatomic) IBOutlet SNColorPickerPreview *preview;
 @property (weak, nonatomic) IBOutlet SNColorPickerPalette *palette;
 @property (weak, nonatomic) IBOutlet UILabel *rgbLabel;
@@ -29,8 +30,7 @@
     [super viewDidLoad];
     self.colorPickerManager = [[SNColorPickerManager alloc] init];
     self.colorPickerManager.delegate = self;
-    
-    [self.colorPickerManager addColorPickerComponents:@[self.slider, self.preview, self.palette]];
+    [self.colorPickerManager addColorPickerComponents:@[self.brightnessSlider, self.alphaSlider, self.preview, self.palette]];
     self.colorPickerManager.color = [UIColor colorWithHexString:@"#5d7c8c"];
 }
 

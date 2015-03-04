@@ -27,13 +27,13 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmk-Fm-k7P" customClass="SNColorPickerPalette">
                                 <rect key="frame" x="0.0" y="220" width="320" height="348"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7we-m5-IIk">
-                                <rect key="frame" x="30" y="120" width="68" height="90"/>
+                                <rect key="frame" x="30" y="146" width="68" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="BsA-rN-dQe"/>
-                                    <constraint firstAttribute="height" constant="90" id="mmj-wq-Iku"/>
+                                    <constraint firstAttribute="height" constant="70" id="mmj-wq-Iku"/>
                                 </constraints>
                                 <string key="text">Red : 
 Green :
@@ -43,7 +43,7 @@ Blue :  </string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGG-Gn-gJU" userLabel="RGB Label">
-                                <rect key="frame" x="95" y="120" width="68" height="90"/>
+                                <rect key="frame" x="95" y="136" width="68" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="Plf-MU-BBU"/>
                                     <constraint firstAttribute="height" constant="90" id="tVS-MJ-YPS"/>
@@ -52,20 +52,30 @@ Blue :  </string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-5x-83x" customClass="SNColorPickerSlider">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-5x-83x" customClass="SNColorPickerBrightnessSlider">
                                 <rect key="frame" x="30" y="76" width="154" height="36"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="cmH-PG-kNc"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPq-Xm-OYy" customClass="SNColorPickerAlphaSlider">
+                                <rect key="frame" x="30" y="112" width="154" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="81d-9S-UwA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7we-m5-IIk" firstAttribute="top" secondItem="hH2-5x-83x" secondAttribute="bottom" constant="8" id="0A2-JH-EiS"/>
+                            <constraint firstItem="WPq-Xm-OYy" firstAttribute="top" secondItem="hH2-5x-83x" secondAttribute="bottom" id="9zV-7a-AcT"/>
                             <constraint firstItem="iHj-Ka-C6p" firstAttribute="top" secondItem="x80-bQ-j4a" secondAttribute="bottom" constant="56" id="Als-Tf-FNy"/>
                             <constraint firstItem="gmk-Fm-k7P" firstAttribute="top" secondItem="iHj-Ka-C6p" secondAttribute="bottom" constant="220" id="Cih-nu-ecB"/>
+                            <constraint firstItem="WPq-Xm-OYy" firstAttribute="leading" secondItem="x25-HP-lDk" secondAttribute="leading" constant="30" id="G1I-Pj-2AD"/>
+                            <constraint firstItem="iHj-Ka-C6p" firstAttribute="leading" secondItem="WPq-Xm-OYy" secondAttribute="trailing" constant="30" id="LRF-R2-q3S"/>
                             <constraint firstAttribute="trailing" secondItem="iHj-Ka-C6p" secondAttribute="trailing" constant="16" id="NtK-FK-KNu"/>
+                            <constraint firstItem="7we-m5-IIk" firstAttribute="top" secondItem="WPq-Xm-OYy" secondAttribute="bottom" constant="-2" id="RSj-sl-IyT"/>
                             <constraint firstItem="AGG-Gn-gJU" firstAttribute="centerY" secondItem="7we-m5-IIk" secondAttribute="centerY" id="Spy-SV-Ncb"/>
                             <constraint firstItem="hH2-5x-83x" firstAttribute="leading" secondItem="x25-HP-lDk" secondAttribute="leading" constant="30" id="SqQ-9m-WFv"/>
                             <constraint firstItem="7we-m5-IIk" firstAttribute="leading" secondItem="x25-HP-lDk" secondAttribute="leading" constant="30" id="dE1-9W-3w7"/>
@@ -85,10 +95,11 @@ Blue :  </string>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="alphaSlider" destination="WPq-Xm-OYy" id="Uh1-Hn-Dbw"/>
+                        <outlet property="brightnessSlider" destination="hH2-5x-83x" id="W7q-zw-vm4"/>
                         <outlet property="palette" destination="gmk-Fm-k7P" id="ST3-TH-PDI"/>
                         <outlet property="preview" destination="iHj-Ka-C6p" id="Mba-CC-geS"/>
                         <outlet property="rgbLabel" destination="AGG-Gn-gJU" id="aeR-xc-7rg"/>
-                        <outlet property="slider" destination="hH2-5x-83x" id="FKg-rS-U8L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2D-Ot-X0V" sceneMemberID="firstResponder"/>

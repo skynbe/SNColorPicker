@@ -79,4 +79,8 @@
     [self.delegate colorPickerComponent:self didChangeColor:self.color];
 }
 
+- (BOOL)resignFirstResponder {
+    return [self.hexColorTextField resignFirstResponder];
+}
+
 @end

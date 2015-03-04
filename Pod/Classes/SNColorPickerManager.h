@@ -11,7 +11,7 @@
 
 @class SNColorPickerManager;
 
-@protocol ColorPickerManagerDelegate <NSObject>
+@protocol SNColorPickerManagerDelegate <NSObject>
 
 - (void)colorPickerManager:(SNColorPickerManager *)manager didChangeColor:(UIColor *)color;
 
@@ -20,7 +20,7 @@
 @interface SNColorPickerManager : NSObject
 
 @property (nonatomic, strong) UIColor *color;
-@property (nonatomic, weak) id<ColorPickerManagerDelegate> delegate;
+@property (nonatomic, weak) id<SNColorPickerManagerDelegate> delegate;
 
 /**
  @abstract Add color components to be managed by this. All color of components under this manager will be synchronized.

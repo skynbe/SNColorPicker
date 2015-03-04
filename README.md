@@ -1,6 +1,6 @@
 # SNColorPicker
 
-A Easy Color Picker for iOS.
+An Easy Color Picker for iOS.
 
 ## Usage
 

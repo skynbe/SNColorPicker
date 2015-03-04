@@ -52,6 +52,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.sliderLayer.frame = CGRectInset(self.bounds, 0.0f, 13.0f);
+    self.color = self.color;
 }
 
 - (CAGradientLayer *)sliderLayer {
@@ -78,18 +79,6 @@
 
 - (void)setColor:(UIColor *)color {
     _color = color;
-    [CATransaction begin];
-    [CATransaction setValue:(id) kCFBooleanTrue forKey:kCATransactionDisableActions];
-    HSBColor hsbColor = HSBColorFromUIColor(_color);
-    self.cursor.center = CGPointMake(CGRectGetWidth(self.frame) * (1 - hsbColor.brightness), CGRectGetHeight(self.frame) * 0.5);
-    self.cursor.color = _color;
-
-    hsbColor.brightness = 0.0f;
-    UIColor *darkColor = [UIColor colorWithHSBColor:hsbColor];
-    hsbColor.brightness = 1.0f;
-    UIColor *lightColor = [UIColor colorWithHSBColor:hsbColor];
-    self.sliderLayer.colors = @[(id)lightColor.CGColor, (id)darkColor.CGColor];
-    [CATransaction commit];
 }
 
 #pragma mark - UITapGesture Recognizer
@@ -126,8 +115,61 @@
 }
 
 - (void)updateColorWithTapPoint:(CGPoint)point {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                                 userInfo:nil];
+}
+
+@end
+
+@implementation SNColorPickerBrightnessSlider
+
+- (void)setColor:(UIColor *)color {
+    [super setColor:color];
+    [CATransaction begin];
+    [CATransaction setValue:(id) kCFBooleanTrue forKey:kCATransactionDisableActions];
+    HSBColor hsbColor = HSBColorFromUIColor(color);
+    self.cursor.center = CGPointMake(CGRectGetWidth(self.frame) * (1 - hsbColor.brightness), CGRectGetHeight(self.frame) * 0.5);
+    self.cursor.color = color;
+    
+    hsbColor.brightness = 0.0f;
+    UIColor *darkColor = [UIColor colorWithHSBColor:hsbColor];
+    hsbColor.brightness = 1.0f;
+    UIColor *lightColor = [UIColor colorWithHSBColor:hsbColor];
+    self.sliderLayer.colors = @[(id)lightColor.CGColor, (id)darkColor.CGColor];
+    [CATransaction commit];
+}
+
+- (void)updateColorWithTapPoint:(CGPoint)point {
     HSBColor hsbColor   = HSBColorFromUIColor(self.color);
     hsbColor.brightness = 1 - point.x / CGRectGetWidth(self.frame);
+    self.color = [UIColor colorWithHSBColor:hsbColor];
+    [self.delegate colorPickerComponent:self didChangeColor:self.color];
+}
+
+@end
+
+@implementation SNColorPickerAlphaSlider
+
+- (void)setColor:(UIColor *)color {
+    [super setColor:color];
+    [CATransaction begin];
+    [CATransaction setValue:(id) kCFBooleanTrue forKey:kCATransactionDisableActions];
+    HSBColor hsbColor = HSBColorFromUIColor(color);
+    self.cursor.center = CGPointMake(CGRectGetWidth(self.frame) * (1 - hsbColor.alpha), CGRectGetHeight(self.frame) * 0.5);
+    self.cursor.color = color;
+    
+    hsbColor.alpha = 0.0f;
+    UIColor *darkColor = [UIColor colorWithHSBColor:hsbColor];
+    hsbColor.alpha = 1.0f;
+    UIColor *lightColor = [UIColor colorWithHSBColor:hsbColor];
+    self.sliderLayer.colors = @[(id)lightColor.CGColor, (id)darkColor.CGColor];
+    [CATransaction commit];
+}
+
+- (void)updateColorWithTapPoint:(CGPoint)point {
+    HSBColor hsbColor   = HSBColorFromUIColor(self.color);
+    hsbColor.alpha = 1 - point.x / CGRectGetWidth(self.frame);
     self.color = [UIColor colorWithHSBColor:hsbColor];
     [self.delegate colorPickerComponent:self didChangeColor:self.color];
 }

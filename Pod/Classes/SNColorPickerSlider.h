@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "SNColorPickerComponent.h"
 
-/**
- @abstract A slider managing brightness of color
- */
 @interface SNColorPickerSlider : UIView <SNColorPickerComponent>
 
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, weak) id<SNColorPickerComponentDelegate> delegate;
+
+@end
+
+@interface SNColorPickerBrightnessSlider : SNColorPickerSlider
+
+@end
+
+@interface SNColorPickerAlphaSlider : SNColorPickerSlider
 
 @end
