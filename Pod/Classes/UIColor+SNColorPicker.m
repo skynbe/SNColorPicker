@@ -37,7 +37,7 @@ RGBColor RGBColorFromUIColor(UIColor *color) {
         int rgb = (int) (r * 255.0f)<<16 | (int) (g * 255.0f)<<8 | (int) (b * 255.0f)<<0;
         return [NSString stringWithFormat:@"#%06x", rgb];
     } else {
-        int rgba = (int) (r * 255.0f)<<24 | (int) (g * 255.0f)<<16 | (int) (b * 255.0f)<<8 | (int) (a*255.0f)<<0;
+        int rgba = (int) (a * 255.0f)<<24 | (int) (r * 255.0f)<<16 | (int) (g * 255.0f)<<8 | (int) (b * 255.0f)<<0;
         return [NSString stringWithFormat:@"#%08x", rgba];
     }
 }
@@ -47,11 +47,11 @@ RGBColor RGBColorFromUIColor(UIColor *color) {
     unsigned rgbValue = 0;
     [[NSScanner scannerWithString:colorString] scanHexInt:&rgbValue];
     if ([colorString length] == 8) {
-        // #RRGGBBAA
-        return [UIColor colorWithRed:((rgbValue >> 24) & 0xFF)/255.0f
-                               green:((rgbValue >> 16) & 0xFF)/255.0f
-                                blue:((rgbValue >> 8) & 0xFF)/255.0f
-                               alpha:(rgbValue & 0xFF)/255.0f];
+        // #AARRGGBB
+        return [UIColor colorWithRed:((rgbValue >> 16) & 0xFF)/255.0f
+                               green:((rgbValue >> 8) & 0xFF)/255.0f
+                                blue:((rgbValue >> 0) & 0xFF)/255.0f
+                               alpha:((rgbValue >> 24)& 0xFF)/255.0f];
     } else {
         // #RRGGBB
         return [UIColor colorWithRed:((rgbValue >> 16) & 0xFF)/255.0f
